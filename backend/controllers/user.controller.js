@@ -133,7 +133,6 @@ const updatePasswordController = async (req, res) => {
     const { currentPassword, newPassword } = req.body;
     const { id } = req.params; // Correct way to get params
 
-    console.log(id);
 
     // Find user by ID
     const user = await User.findById(id);

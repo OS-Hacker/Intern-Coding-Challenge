@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { useAuth } from "../context/AuthContext";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 const UpdatePassword = () => {
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
@@ -11,7 +13,7 @@ const UpdatePassword = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const { passwordModalOpen, setPasswordModalOpen } = useAuth();
+  const { user, passwordModalOpen, setPasswordModalOpen } = useAuth();
 
   const handlePasswordUpdate = async (e) => {
     e.preventDefault();

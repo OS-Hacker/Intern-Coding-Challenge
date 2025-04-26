@@ -5,12 +5,13 @@ import Loading from "../components/Loading";
 import { useAuth } from "../context/AuthContext";
 
 const PrivateRoute = () => {
-  const { user } = useAuth();
+  const { user, logout } = useAuth(); // Add logout function from context
   const [ok, setOk] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const checkAuth = async () => {
+      // Check if token exists
       if (!user?.token) {
         setOk(false);
         setLoading(false);
@@ -29,20 +30,26 @@ const PrivateRoute = () => {
 
         setOk(data?.ok && user?.user?.role === "user");
       } catch (error) {
-        if (!axios.isCancel(error)) {
-          console.error("Admin authentication check failed:", error);
-          setOk(false);
+        console.error("Authentication check failed:", error);
+
+        // If token verification failed, clear user data
+        if (error.response?.status === 401) {
+          logout(); // Clear user from context and local storage
         }
+
+        setOk(false);
       } finally {
         setLoading(false);
       }
     };
+
     checkAuth();
-  }, [user?.token]);
+  }, [user?.token, logout]); // Add logout to dependencies
 
   if (loading) {
     return <Loading />;
   }
+
   return ok ? <Outlet /> : <Navigate to="/login" replace />;
 };
 

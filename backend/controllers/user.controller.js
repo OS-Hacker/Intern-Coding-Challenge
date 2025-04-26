@@ -40,7 +40,7 @@ const registerController = async (req, res) => {
 
     // Generate JWT token
     const token = jwt.sign(payload, process.env.JWT_SECRET, {
-      expiresIn: "5h",
+      expiresIn: "5d",
     });
 
     // Return success response
@@ -104,7 +104,7 @@ const loginController = async (req, res) => {
 
     // Generate JWT token
     const token = jwt.sign(payload, process.env.JWT_SECRET, {
-      expiresIn: "5h",
+      expiresIn: "5d",
     });
 
     // Return success response

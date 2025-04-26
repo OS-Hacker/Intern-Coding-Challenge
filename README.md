@@ -28,6 +28,11 @@ A web application that allows users to submit ratings for stores registered on t
 - Can view a **list of users who rated their store**.
 - Can see the **average rating** of their store.
 
+### Database Schema
+**users** - Stores user information
+**stores** - Contains store details
+**ratings** - Tracks user ratings for stores
+
 ## Form Validations
 - **Name:** Min 20 characters, Max 60 characters.
 - **Address:** Max 400 characters.
@@ -46,4 +51,35 @@ A web application that allows users to submit ratings for stores registered on t
 Navigate to the backend directory:
 
 cd backend
+
+### Install dependencies
+
+npm install
+
+### Start the server
+
+npm start  # Development mode with nodemon
+
+### Frontend Setup
+
+Navigate to the frontend directory:
+
+cd frontend
+
+### Install dependencies
+
+npm install
+
+### Start the development server
+
+npm run dev 
+
+### Environment Variables for Production
+
+PORT=5000
+MONGO_URI=mongodb+srv://omshinde:r7JWJhIQmqSQFhyP@cluster0.6ak47cd.mongodb.net/systemDB
+JWT_SECRET = JDJDJDJDDJDBDGVSFSDAT
+
+
+
 

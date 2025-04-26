@@ -29,9 +29,9 @@ A web application that allows users to submit ratings for stores registered on t
 - Can see the **average rating** of their store.
 
 ### Database Schema
-**users** - Stores user information
-**stores** - Contains store details
-**ratings** - Tracks user ratings for stores
+- **users** - Stores user information
+- **stores** - Contains store details
+- **ratings** - Tracks user ratings for stores
 
 ## Form Validations
 - **Name:** Min 20 characters, Max 60 characters.
@@ -76,9 +76,9 @@ npm run dev
 
 ### Environment Variables for Production
 
-PORT=5000
-MONGO_URI=mongodb+srv://omshinde:r7JWJhIQmqSQFhyP@cluster0.6ak47cd.mongodb.net/systemDB
-JWT_SECRET = JDJDJDJDDJDBDGVSFSDAT
+- PORT=5000
+- MONGO_URI=mongodb+srv://omshinde:r7JWJhIQmqSQFhyP@cluster0.6ak47cd.mongodb.net/systemDB
+- JWT_SECRET = JDJDJDJDDJDBDGVSFSDAT
 
 
 

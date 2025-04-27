@@ -129,6 +129,7 @@ function RegisterPage() {
               name="name"
               type="text"
               onChange={handleChange}
+              placeholder="Full Name"
               value={formData.name}
               className={`w-full rounded-md border px-3 py-2 focus:ring-indigo-500 sm:text-sm ${
                 errors.name ? "border-red-300" : "border-gray-300"
@@ -152,6 +153,7 @@ function RegisterPage() {
               name="email"
               type="email"
               onChange={handleChange}
+              placeholder="Email Address"
               value={formData.email}
               className={`w-full rounded-md border px-3 py-2 focus:ring-indigo-500 sm:text-sm ${
                 errors.email ? "border-red-300" : "border-gray-300"
@@ -176,6 +178,7 @@ function RegisterPage() {
                 name="password"
                 type={showPassword ? "text" : "password"}
                 onChange={handleChange}
+                placeholder="Password"
                 value={formData.password}
                 className={`w-full rounded-md border px-3 py-2 focus:ring-indigo-500 sm:text-sm ${
                   errors.password ? "border-red-300" : "border-gray-300"
@@ -211,6 +214,7 @@ function RegisterPage() {
               name="address"
               rows={3}
               onChange={handleChange}
+              placeholder="Address"
               value={formData.address}
               className={`w-full rounded-md border px-3 py-2 focus:ring-indigo-500 sm:text-sm ${
                 errors.address ? "border-red-300" : "border-gray-300"

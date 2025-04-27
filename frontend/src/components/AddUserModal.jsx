@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useAuth } from "../context/AuthContext";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 const AddUserModal = ({ onClose }) => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,7 @@ const AddUserModal = ({ onClose }) => {
     address: "",
     role: "", // Default to 'user'
   });
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { user } = useAuth();
@@ -19,8 +21,6 @@ const AddUserModal = ({ onClose }) => {
     e.preventDefault();
     setError("");
     setIsSubmitting(true);
-
-    console.log(formData);
 
     try {
       // Validate password length
@@ -90,6 +90,7 @@ const AddUserModal = ({ onClose }) => {
               <input
                 type="text"
                 name="name"
+                placeholder="Name"
                 className="mt-1 block w-full border border-gray-300 rounded-md p-2"
                 value={formData.name}
                 onChange={handleChange}
@@ -104,6 +105,7 @@ const AddUserModal = ({ onClose }) => {
               <input
                 type="email"
                 name="email"
+                placeholder="Email"
                 className="mt-1 block w-full border border-gray-300 rounded-md p-2"
                 value={formData.email}
                 onChange={handleChange}
@@ -111,20 +113,32 @@ const AddUserModal = ({ onClose }) => {
               />
             </div>
 
-            <div>
+            <div className="relative">
               <label className="block text-sm font-medium text-gray-700">
                 Password *
               </label>
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 name="password"
-                className="mt-1 block w-full border border-gray-300 rounded-md p-2"
+                className="mt-1 block w-full border border-gray-300 rounded-md p-2 pr-10"
                 value={formData.password}
                 onChange={handleChange}
                 required
                 minLength={6}
                 placeholder="At least 6 characters"
               />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute top-9 right-2 px-2 text-gray-500 flex items-center"
+                aria-label={showPassword ? "Hide password" : "Show password"}
+              >
+                {showPassword ? (
+                  <AiFillEyeInvisible size={20} />
+                ) : (
+                  <AiFillEye size={20} />
+                )}
+              </button>
             </div>
 
             <div>
@@ -133,6 +147,7 @@ const AddUserModal = ({ onClose }) => {
               </label>
               <input
                 type="text"
+                placeholder="Address"
                 name="address"
                 className="mt-1 block w-full border border-gray-300 rounded-md p-2"
                 value={formData.address}

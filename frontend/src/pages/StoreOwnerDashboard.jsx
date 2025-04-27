@@ -102,15 +102,15 @@ const StoreOwnerDashboard = () => {
               <h2 className="text-xl font-semibold mb-4">{user?.user?.name}</h2>
               <div className="flex items-center">
                 <div className="text-5xl font-bold mr-4">
-                  {averageRating.toFixed(1) || 0}/5
+                  {averageRating?.toFixed(1) || 0}/5
                 </div>
                 <div>
                   <div className="flex items-center mb-2">
                     {renderStars(averageRating)}
                   </div>
                   <p className="text-gray-600">
-                    {/* Based on {ratings.length} rating
-                    {ratings.length !== 1 ? "s" : ""} */}
+                    Based on {ratings?.length} rating
+                    {ratings?.length !== 1 ? "s" : ""}
                   </p>
                 </div>
               </div>
@@ -118,7 +118,7 @@ const StoreOwnerDashboard = () => {
 
             <div className="bg-white rounded-lg shadow-md p-6">
               <h2 className="text-xl font-semibold mb-4">Customer Ratings</h2>
-              {ratings.length === 0 ? (
+              {ratings?.length === 0 ? (
                 <div className="text-center py-8">
                   <p className="text-gray-500">No ratings submitted yet.</p>
                 </div>

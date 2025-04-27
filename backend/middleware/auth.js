@@ -23,7 +23,7 @@ const authUser = async (req, res, next) => {
     // if all ok then go to next route
     next();
   } catch (error) {
-    console.log(error);
+    console.log("Vefication failed", error);
     res.status(401).send({
       success: false,
       msg: "Unauthorized - Token verification failed",

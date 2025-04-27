@@ -110,6 +110,7 @@ const AddStoreModal = ({ onClose }) => {
               <input
                 type="text"
                 id="name"
+                placeholder="Name"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
@@ -129,6 +130,7 @@ const AddStoreModal = ({ onClose }) => {
               <input
                 type="email"
                 id="email"
+                placeholder="Email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
@@ -148,6 +150,7 @@ const AddStoreModal = ({ onClose }) => {
               <textarea
                 id="address"
                 name="address"
+                placeholder="Address"
                 value={formData.address}
                 onChange={handleChange}
                 rows="3"
@@ -172,7 +175,7 @@ const AddStoreModal = ({ onClose }) => {
                 className="w-full px-3 py-2 border border-gray-300 rounded-md"
                 required
               >
-                <option value="">-- Select Owner --</option>
+                <option value="" hidden>-- Select Owner --</option>
                 {owners?.map((owner) => (
                   <option key={owner._id} value={owner._id}>
                     {owner.name} ({owner.email})

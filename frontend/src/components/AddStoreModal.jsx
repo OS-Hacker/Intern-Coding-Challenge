@@ -25,11 +25,10 @@ const AddStoreModal = ({ onClose }) => {
             },
           }
         );
-        console.log(res?.data.user)
         setOwners(res?.data?.user);
       } catch (err) {
         toast.error("Failed to fetch store owners.");
-        console.log(err)
+        console.log(err);
       }
     };
 
@@ -82,7 +81,9 @@ const AddStoreModal = ({ onClose }) => {
       );
 
       toast.success("Store added successfully!");
+
       onClose();
+
       setFormData({ name: "", email: "", address: "", owner: "" });
     } catch (error) {
       toast.error(error.response?.data?.message || "Failed to add store");
@@ -175,7 +176,9 @@ const AddStoreModal = ({ onClose }) => {
                 className="w-full px-3 py-2 border border-gray-300 rounded-md"
                 required
               >
-                <option value="" hidden>-- Select Owner --</option>
+                <option value="" hidden>
+                  -- Select Owner --
+                </option>
                 {owners?.map((owner) => (
                   <option key={owner._id} value={owner._id}>
                     {owner.name} ({owner.email})

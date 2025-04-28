@@ -52,7 +52,6 @@ const StoreList = () => {
     setFilters((prev) => ({ ...prev, rating: value }));
   };
 
-  console.log(stores);
 
   const filteredStores = stores.filter((store) => {
     return (

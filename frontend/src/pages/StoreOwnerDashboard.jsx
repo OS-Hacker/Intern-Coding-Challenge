@@ -34,7 +34,6 @@ const StoreOwnerDashboard = () => {
           }
         );
 
-        console.log(response)
 
         if (response.data.success) {
           setRatings(response.data.ratings);

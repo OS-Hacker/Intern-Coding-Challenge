@@ -67,7 +67,7 @@ const UserList = () => {
           <FiUsers className="text-blue-500" /> User Management
         </h2>
         <div className="text-sm text-gray-500">
-          Total Users: <span className="font-semibold">{users.length}</span>
+          Total Users: <span className="font-semibold">{users?.length}</span>
         </div>
       </div>
 

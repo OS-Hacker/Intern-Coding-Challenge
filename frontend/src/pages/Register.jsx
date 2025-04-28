@@ -100,11 +100,11 @@ function RegisterPage() {
   if (authLoading) {
     return <Loading />;
   }
-  
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-lg">
-        <h2 className="text-center text-3xl font-semibold text-gray-900">
+        <h2 className="text-center text-3xl font-semibold text-gray-900 ">
           Create a New Account
         </h2>
 
